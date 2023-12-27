@@ -355,11 +355,9 @@ didPickDocumentsAtURLs:(NSArray<NSURL *> *)urls{
     if(controller.documentPickerMode == UIDocumentPickerModeOpen) {
         if (urls.count) {
             NSURL *url = [urls objectAtIndex:0];
-            if ([url startAccessingSecurityScopedResource]) {
-                _result([urls objectAtIndex:0].path);
-                _result = nil;
-                return;
-            }
+            _result(url.path);
+            _result = nil;
+            return;
         }
         _result(nil);
         _result = nil;
